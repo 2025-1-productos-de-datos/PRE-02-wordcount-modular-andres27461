@@ -8,7 +8,7 @@ def test_migracion():
 
     try:
         subprocess.run(
-            ["python", "-m", "homework", "data/input", "data/output"],
+            ["python3", "-m", "homework", "data/input", "data/output"],
             check=True,
         )
     except subprocess.CalledProcessError as e:
