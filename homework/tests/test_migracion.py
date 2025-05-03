@@ -1,11 +1,18 @@
 import os
+import subprocess
 
 from ..src.wordcount import main
 
 
 def test_migracion():
 
-    main()
+    try:
+        subprocess.run(
+            ["python", "-m", "homework", "data/input", "data/output"],
+            check=True,
+        )
+    except subprocess.CalledProcessError as e:
+        raise Exception(f"Error running the homework script: {e}")
 
     if not os.path.exists("data/output/results.tsv"):
         raise FileNotFoundError("El archivo results.tsv no existe.")
